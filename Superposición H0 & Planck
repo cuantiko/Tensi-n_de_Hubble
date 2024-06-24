@@ -4,7 +4,7 @@ import matplotlib
 from matplotlib import pyplot as plt
 import numpy as np
 import camb
-plt.style.use('classic')
+plt.style.use('seaborn-v0_8-white')
 from camb import model, initialpower
 
 #Imprimimos que se está usando CAMB
