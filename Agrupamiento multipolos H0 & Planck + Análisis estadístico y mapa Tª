@@ -71,14 +71,14 @@ for k in range(0,3):
 
 
 #Graficamos:
-fig, ax = plt.subplots(figsize=(80, 75))
+fig, ax = plt.subplots(figsize=(160,150), layout='constrained')
 ax.errorbar(ls_bin, Dl[0], color='green', yerr=error_Planck, fmt='-o', ecolor='black', markersize=9, capsize=3, label='Observaciones Planck',zorder=1)
 ax.plot(ls_bin,Dl[1],'o', color='blue',label='$H_0$ local',zorder=2)
 ax.plot(ls_bin,Dl[2], 'o',color='red',label='$H_0$ temprano',zorder=3)
 ax.set_xlabel('$\ell$',fontsize=15)
 ax.set_ylabel('$D_l\;(\mu K^2)$', fontsize=15)
 ax.legend(fontsize=15)
-ax.set_title('Modo TT (con agrupamiento de multipolos) para $H_0$ local y temprano y observaciones Planck', fontsize=20)
+ax.set_title('Anisotropía en TT (con agrupamiento de multipolos) para $H_0$ simulada junto con observaciones Planck', fontsize=20)
 ax.set_xlim([25,2521])
 plt.xticks(fontsize=13)
 plt.yticks(fontsize=13)
@@ -122,19 +122,23 @@ Gauss_local=np.exp((-1/2)*np.array(chi1)**2)
 Gauss_temprano=np.exp((-1/2)*np.array(chi2)**2)
 
 # Creamos una figura y dos subplots, uno al lado del otro
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(80, 75))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(160, 150), layout='constrained')
 
 # Crear la primera gráfica en el primer subplot (izquierda)
 ax1.plot(chi1, Gauss_local, color='blue', linewidth=2, label='Función verosimilitud local')
-ax1.set_title('Función verosimilitud local')
-ax1.set_xlabel('$\chi_{local}$')
-ax1.set_ylabel('$e^{-(1/2)\chi_{local}^2}$')
+ax1.set_title('Función verosimilitud local', fontsize=20)
+ax1.set_xlabel('$\chi_{local}$', fontsize=15)
+ax1.set_ylabel('$e^{-(1/2)\chi_{local}^2}$', fontsize=15)
+plt.xticks(fontsize=13)
+plt.yticks(fontsize=13)
 
 # Crear la segunda gráfica en el segundo subplot (derecha)
 ax2.plot(chi2, Gauss_temprano, color='red', linewidth=2,label='Función verosimilitud temprano')
-ax2.set_title('Función verosimilitud temprano')
-ax2.set_xlabel('$\chi_{temprano}$')
-ax2.set_ylabel('$e^{-(1/2)\chi_{temprano}^2}$')
+ax2.set_title('Función verosimilitud temprano', fontsize=20)
+ax2.set_xlabel('$\chi_{temprano}$', fontsize=15)
+ax2.set_ylabel('$e^{-(1/2)\chi_{temprano}^2}$', fontsize=15)
+plt.xticks(fontsize=13)
+plt.yticks(fontsize=13)
 
 # Mostrar las gráficas
 #plt.tight_layout()
@@ -179,3 +183,4 @@ plt.show()
 hp.mollview(mapa2, title="Mapa de Temperatura para $H_0$ temprano", unit="μK", cmap='viridis')
 hp.graticule()
 plt.show()
+
