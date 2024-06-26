@@ -75,13 +75,13 @@ fig, ax = plt.subplots(figsize=(160,150), layout='constrained')
 ax.errorbar(ls_bin, Dl[0], color='green', yerr=error_Planck, fmt='-o', ecolor='black', markersize=9, capsize=3, label='Observaciones Planck',zorder=1)
 ax.plot(ls_bin,Dl[1],'o', color='blue',label='$H_0$ local',zorder=2)
 ax.plot(ls_bin,Dl[2], 'o',color='red',label='$H_0$ temprano',zorder=3)
-ax.set_xlabel('$\ell$',fontsize=15)
-ax.set_ylabel('$D_l\;(\mu K^2)$', fontsize=15)
-ax.legend(fontsize=15)
-ax.set_title('Anisotropía en TT (con agrupamiento de multipolos) para $H_0$ simulada junto con observaciones Planck', fontsize=20)
+ax.set_xlabel('$\ell$',fontsize=20)
+ax.set_ylabel('$D_l\;(\mu K^2)$', fontsize=20)
+ax.legend(fontsize=20)
+ax.set_title('Anisotropía en (TT) con agrupamiento de multipolos', fontsize=20)
 ax.set_xlim([25,2521])
-plt.xticks(fontsize=13)
-plt.yticks(fontsize=13)
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 plt.show()
 
 ##########################################################################################
@@ -127,18 +127,18 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(160, 150), layout='constrained')
 # Crear la primera gráfica en el primer subplot (izquierda)
 ax1.plot(chi1, Gauss_local, color='blue', linewidth=2, label='Función verosimilitud local')
 ax1.set_title('Función verosimilitud local', fontsize=20)
-ax1.set_xlabel('$\chi_{local}$', fontsize=15)
-ax1.set_ylabel('$e^{-(1/2)\chi_{local}^2}$', fontsize=15)
-plt.xticks(fontsize=13)
-plt.yticks(fontsize=13)
+ax1.set_xlabel('$\chi_{local}$', fontsize=20)
+ax1.set_ylabel('$e^{-(1/2)\chi_{local}^2}$', fontsize=20)
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 
 # Crear la segunda gráfica en el segundo subplot (derecha)
 ax2.plot(chi2, Gauss_temprano, color='red', linewidth=2,label='Función verosimilitud temprano')
 ax2.set_title('Función verosimilitud temprano', fontsize=20)
-ax2.set_xlabel('$\chi_{temprano}$', fontsize=15)
-ax2.set_ylabel('$e^{-(1/2)\chi_{temprano}^2}$', fontsize=15)
-plt.xticks(fontsize=13)
-plt.yticks(fontsize=13)
+ax2.set_xlabel('$\chi_{temprano}$', fontsize=20)
+ax2.set_ylabel('$e^{-(1/2)\chi_{temprano}^2}$', fontsize=20)
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 
 # Mostrar las gráficas
 #plt.tight_layout()
@@ -168,19 +168,24 @@ plt.yticks(fontsize=13)
 nside = 512
 npix = hp.nside2npix(nside)
 
-# Generar el mapa usando hp.synfast
+# Generar los mapas usando hp.synfast
 mapa1 = hp.synfast(Y_local, nside, new=True)
-mapa2=hp.synfast(Y_temprano, nside, new=True)
+mapa2=  hp.synfast(Y_temprano, nside, new=True)
 
+#Mapa1:
 # Mostrar el mapa utilizando hp.mollview
-hp.mollview(mapa1, title="Mapa de Temperatura para $H_0$ local", unit="μK", cmap='viridis')
+hp.mollview(mapa1, title="Mapa de Temperatura para $H_0$ local", unit="μK", cmap='viridis', min=-25000, max=25000)
 
-# Añadir graticulado para mejorar la visualización
+# Añadir graticulado para mejorar la visualización y modificar tamaño del título y nombres de los ejes
 hp.graticule()
+plt.title("Mapa de Temperatura para $H_0$ local", fontsize=20)  # Cambiar el tamaño del título
+plt.xlabel("Longitud", fontsize=20)  # Cambiar el tamaño de la etiqueta del eje X
 # Mostrar el gráfico
 plt.show()
 
-hp.mollview(mapa2, title="Mapa de Temperatura para $H_0$ temprano", unit="μK", cmap='viridis')
+#Mapa2:
+hp.mollview(mapa2, title="Mapa de Temperatura para $H_0$ temprano", unit="μK", cmap='viridis', min=-25000, max=25000)
 hp.graticule()
+plt.title("Mapa de Temperatura para $H_0$ temprano", fontsize=20)  # Cambiar el tamaño del título
+plt.xlabel("Longitud", fontsize=20)  # Cambiar el tamaño de la etiqueta del eje X
 plt.show()
-
