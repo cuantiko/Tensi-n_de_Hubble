@@ -24,10 +24,8 @@ results2 = camb.get_results(pars2)
 powers1 =results1.get_cmb_power_spectra(pars1, CMB_unit='muK')
 powers2 =results2.get_cmb_power_spectra(pars2, CMB_unit='muK')
 
-#Guardamos el espectro con efecto lente (total) y sin efecto lente (unlensed_scalar)
+#Guardamos el espectro con efecto lente (total) 
 totCL1 = powers1['total']
-unlensedCL1=powers1['unlensed_scalar']
-unlensedCL2=powers2['unlensed_scalar']
 totCL2 = powers2['total']
 
 #Generamos el eje de abcisas de los Dl simulados
@@ -43,18 +41,16 @@ upper_error = A[:,3]
 #Representamos todas las funciones
 fig, ax = plt.subplots(figsize=(160,150), layout='constrained')
 
-ax.plot(X,Y+upper_error, color='black',alpha=1, label='Error Planck')
-ax.plot(X,Y-lower_error, color='black',alpha=1)
-ax.plot(X,Y, color='green',alpha=1, label='Observaciones Planck')
-ax.plot(ls,totCL1[:,0], color='blue', alpha=1,label='$H_0$ local (con efecto lente)', linewidth=6.8)
-ax.plot(ls,totCL2[:,0], color='red', alpha=1, label='$H_0$ temprano (con efecto lente)',linewidth=6.8)
-ax.plot(ls,unlensedCL1[:,0],color='deepskyblue', label='$H_0$ local (sin efecto lente)', linewidth=2.5)
-ax.plot(ls,unlensedCL2[:,0],color='yellow', label='$H_0$ temprano (sin efecto lente)',linewidth=2.5)
-ax.set_xlabel('$\ell$', fontsize=15)
-ax.set_ylabel('$D_l\;(\mu K^2)$',fontsize=15)
-ax.legend(fontsize=15)
-ax.set_title('Anisotropía en TT para $H_0$ simulada junto con observaciones Planck', fontsize=20)
+ax.plot(X,Y+upper_error, alpha=0.9, color='black')
+ax.plot(X,Y-lower_error, alpha=0.9, color='black')
+ax.plot(X,Y, color='green', alpha=0.8, label='Observaciones Planck')
+ax.plot(ls,totCL1[:,0], color='deepskyblue', label='$H_0$ local', linewidth=3)
+ax.plot(ls,totCL2[:,0], color='red', label='$H_0$ temprano',linewidth=3)
+ax.set_xlabel('$\ell$', fontsize=20)
+ax.set_ylabel('$D_{\ell}\;(\mu K^2)$',fontsize=20)
+ax.legend(fontsize=20)
+ax.set_title('Anisotropía en (TT) para $H_0$ simulada junto con observaciones Planck', fontsize=20)
 ax.set_xlim([1,2500])
-plt.xticks(fontsize=13)
-plt.yticks(fontsize=13)
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
 plt.show()
