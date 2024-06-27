@@ -166,7 +166,6 @@ plt.yticks(fontsize=20)
 
 # Parámetros del mapa
 nside = 512
-npix = hp.nside2npix(nside)
 
 # Generar los mapas usando hp.synfast
 mapa1 = hp.synfast(Y_local, nside, new=True)
