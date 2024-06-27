@@ -2,7 +2,7 @@
 Este repositorio corresponde al TFG _Tensión de Hubble en el Universo temprano_. Los códigos están comentados y en el propio documento del TFG se explican sucintamente.
 
 # Correspondencia con los archivos:
--Los archivos .txt corresponden con los datos observacionales del 2020 extraídos de la página oficial de la misión Planck (https://www.cosmos.esa.int/web/planck).
+-Los archivos .txt corresponden con los datos observacionales del 2018 extraídos de la página oficial de la misión Planck (https://www.cosmos.esa.int/web/planck).
 
 -El archivo "TT_Planck_solo" corresponde con la creación de la figura 3.2.
 
