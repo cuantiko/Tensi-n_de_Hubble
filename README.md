@@ -6,6 +6,6 @@ Este repositorio corresponde al TFG _Tensión de Hubble en el Universo temprano_
 
 - El archivo "TT_Planck_solo" corresponde con la creación de la figura 3.2.
 
-- El archivo "Superposicion H0 & Planck" corresponde con la figura 4.1.
+- El archivo "SuperposicionH0&Planck" corresponde con la figura 4.1.
 
-- El resto de figuras y métodos se encuentran en el archivo "Agrupamiento multipolos H0 & Planck + Análisis estadístico y mapa T".
+- El resto de figuras y métodos se encuentran en el archivo "Agrupamientomultipolos".
